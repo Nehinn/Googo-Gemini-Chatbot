@@ -1,163 +1,83 @@
+# 🤖 GOOGO Gemini Chatbot
 
-
-# 📌 GemTalk – All-in-One Generative AI Streamlit App
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gemtalk.streamlit.app/)
-
-**GemTalk** is a Next-Gen AI web app built with **Streamlit** and powered by **Google Gemini models**. It brings together multiple AI capabilities — conversational chatbot, image captioning, semantic text embeddings, and an ask-anything assistant — into a simple, interactive interface.
-
-👉 Try it live: **[https://gemtalk.streamlit.app/](https://gemtalk.streamlit.app/)**
+A clean, interactive multi-turn conversational AI chatbot built using Python, Streamlit, and the official Google GenAI SDK powered by `gemini-3.8-flash`.
 
 ---
 
-## 🧠 🚀 Features
+## 🚀 Features
 
-GemTalk combines powerful AI features in one interface:
-
-* **🤖 Chatbot Conversation** – Chat naturally with Gemini-powered AI
-* **🖼️ Image Captioning** – Upload images and generate contextual captions
-* **📌 Text Embedding** – Generate semantic embeddings for text
-* **❓ Ask Me Anything (Q&A)** – Ask questions and get accurate AI responses
-* **💬 Multi-modal Support** – Works on both text and image inputs
-
-This makes the app useful for demos, exploration, prototyping, or learning generative AI workflows.
+- **Multi-Turn Chat History:** Remembers conversational context across responses during an active session.
+- **Optimized Performance:** Direct REST transport communication to prevent socket dropouts and ensure fast response delivery.
+- **Streamlit Native UI:** Minimalist and responsive chat interface with custom session state management.
+- **Secure Configuration:** Environment-based credential management via `.env` to protect API keys.
 
 ---
 
-## ⚙️ Technology Stack
+## 🛠️ Tech Stack
 
-| Part               | Technology                                          |
-| ------------------ | --------------------------------------------------- |
-| UI/Frontend        | **Streamlit**                                       |
-| AI Backend         | **Google Gemini models (Gemini API)**               |
-| Deployment         | **Streamlit Community Cloud**                       |
-| API Key Management | **Environment Variables / `.env` and `st.secrets`** |
+- **Frontend:** [Streamlit](https://streamlit.io/)
+- **LLM Engine:** [Google GenAI SDK](https://github.com/google-gemini/generative-ai-python) (`gemini-3.8-flash`)
+- **Environment Management:** `python-dotenv`
 
 ---
 
-## 🛠️ Getting Started (Run Locally)
+## 📂 Project Structure
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/gaurkumarsoni/Gemini_GenAI_Project.git
-cd Gemini_GenAI_Project
-```
-
----
-
-### 2. Create Virtual Environment (Optional)
-
-```bash
-python -m venv venv
-# Activate on macOS/Linux:
-source venv/bin/activate
-# Or on Windows:
-venv\Scripts\activate
-```
-
----
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-### 4. Configure Environment
-
-Create a `.env` file in the project root:
-
-```env
-GEMINI_API_KEY=your_google_gemini_api_key_here
-```
-
-⚠️ Make sure `.env` is in `.gitignore` so your key does **not** get committed.
-
----
-
-### 5. Run the App
-
-```bash
-streamlit run main.py
-```
-
-This will start the app on `localhost:8501`.
-
----
-
-## 🧩 Usage
-
-Once running:
-
-* Enter text in the Chat interface to talk with the AI.
-* Upload images to get auto-generated captions.
-* Use the “Ask Anything” tab to get instant, generative answers.
-* Generate text embeddings for semantic search or analysis.
-
----
-
-## 🚀 Deployment
-
-The app is deployed on **Streamlit Community Cloud**.
-To get a similar deployment:
-
-1. Push your commits to GitHub.
-2. Connect your GitHub repository to **Streamlit Community Cloud**.
-3. Add your `GEMINI_API_KEY` in **Streamlit Secrets**.
-4. Streamlit will auto-deploy every push to the `main` branch. ([Streamlit Docs][1])
-
----
-
-## 📁 Project Structure
-
-```
+```text
 Gemini_GenAI_Project/
-├── main.py
-├── gemini_utility.py
-├── requirements.txt
-├── .gitignore
-├── README.md
-└── .env.example
-```
+│
+├── main.py              # Streamlit UI & chat orchestration
+├── gemini_utility.py    # Gemini client initialization & chat session loader
+├── requirements.txt     # Python dependency specifications
+├── .gitignore           # Git ignore configuration (protects API keys)
+├── .env                 # Local API keys (excluded from source control)
+└── README.md            # Project documentation
+⚙️ Installation & Setup
+1. Clone the Repository
+Bash
+git clone [https://github.com/Nehinn/Googo-Gemini-Chatbot.git](https://github.com/Nehinn/Googo-Gemini-Chatbot.git)
+cd Googo-Gemini-Chatbot
+2. Set Up a Virtual Environment (Recommended)
+Bash
+python -m venv venv
+
+# Windows (Git Bash)
+source venv/Scripts/activate
+
+# Windows (Command Prompt)
+venv\Scripts\activate
+3. Install Dependencies
+Bash
+pip install -r requirements.txt
+4. Configure Your API Key
+Obtain a free API key from Google AI Studio.
+
+Create a .env file in the root directory:
+
+Bash
+touch .env
+Add your key inside .env:
+
+Code snippet
+GEMINI_API_KEY="your_actual_gemini_api_key_here"
+▶️ Running the Application
+Launch the Streamlit dashboard:
+
+Bash
+python -m streamlit run main.py
+The app will open automatically in your browser at http://localhost:8501.
+
+🛡️ License
+This project is licensed under the MIT License.
+
 
 ---
 
-## 🛡️ Secure API Key Handling
+### Push `README.md` to your repository:
 
-* Use `st.secrets` for deployment.
-* Use `.env` and **python-dotenv** locally.
-* Never commit API keys to GitHub.
+In Git Bash, run:
 
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-Feel free to fork the project and submit a pull request.
-
----
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for details.
-
----
-
-## 🔗 Links
-
-* Live App: [https://gemtalk.streamlit.app/](https://gemtalk.streamlit.app/)
-* Repo: [https://github.com/gaurkumarsoni/Gemini_GenAI_Project.git](https://github.com/gaurkumarsoni/Gemini_GenAI_Project.git)
-
----
-
-## 🌟 Support / Star & Fork
-
-If you like **GemTalk**, please give it a ⭐ on GitHub and feel free to **fork** the repository to experiment, improve, or add new features.  
-
-Your support helps keep the project growing! 🙌
-
-- ⭐ Star: [https://github.com/gaurkumarsoni/Gemini_GenAI_Project](https://github.com/gaurkumarsoni/Gemini_GenAI_Project)  
-- 🍴 Fork: [https://github.com/gaurkumarsoni/Gemini_GenAI_Project/fork](https://github.com/gaurkumarsoni/Gemini_GenAI_Project/fork)
+```bash
+git add README.md
+git commit -m "docs: add comprehensive project README"
+git push origin main
